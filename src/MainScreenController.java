@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 public class MainScreenController {
     private QuestionScreenController otherController;
     private Stage otherStage;
+
     @FXML
     private Pane mainPane;
 
@@ -24,10 +25,26 @@ public class MainScreenController {
      */
     @FXML
     private void goToQuestions() {
-        Stage currentStage = (Stage) mainPane.getScene().getWindow();
-        currentStage.close();
-        otherStage.show();
+        if (otherStage != null) {
+            Stage currentStage = (Stage) mainPane.getScene().getWindow();
+            currentStage.close();
 
+            if (!otherStage.isShowing()) {
+                otherStage.show();
+            } else {
+                System.out.println("The question stage is already visible.");
+            }
+        } else {
+            System.out.println("Other stage is not set. Unable to navigate to questions.");
+        }
+    }
+
+    /**
+     * This method closes the user interface when the user clicks the exit button
+     */
+    @FXML
+    private void exit(){
+        System.exit(0);
     }
 
     public void setOtherStage(Stage stage) {

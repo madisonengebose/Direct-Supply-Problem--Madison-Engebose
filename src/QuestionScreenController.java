@@ -3,27 +3,33 @@
  * Name: Madison Engebose
  * Created: 11/12/24
  */
+
 package src;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
-
 import javafx.scene.control.Label;
-import java.util.List;
 
+/**
+ * This class sets up the methods for my question screen
+ */
 public class QuestionScreenController {
     private Stage mainStage;
     private MainScreenController mainController;
     private int currentQuestionIndex = 0;
-    private List<String> questions; //
     private GetQuiz quiz;
-    private int questionNumber;
     private int currentScore = 0;
+    private static final int TOTAL_QUESTIONS = 5;
     @FXML
-    private TextArea QuestionTextArea;
+    private TextArea questionTextArea;
     @FXML
-    private Label QuestionNumberLabel;
+    private Label questionNumberLabel;
+    @FXML
+    private Button trueButton;
+    @FXML
+    private Button falseButton;
     /**
      * This method closes the window when the user clicks the exit button.
      */
@@ -40,33 +46,43 @@ public class QuestionScreenController {
         initializeQuiz();
     }
 
+    /**
+     * This method sets up the quiz for the user
+     */
+    @FXML
     public void initialize() {
         initializeQuiz();
     }
 
     private void initializeQuiz() {
-        quiz = new GetQuiz(); // Fetches a new set of questions
+        quiz = new GetQuiz();
         currentQuestionIndex = 0;
         currentScore = 0;
         displayNextQuestion();
+        trueButton.setDisable(false);
+        falseButton.setDisable(false);
     }
 
     private void displayNextQuestion() {
         if (quiz.hasMoreQuestions()) {
             Question currentQuestion = quiz.getCurrentQuestion();
-            currentQuestionIndex +=1;
-            QuestionTextArea.setText(currentQuestion.getText());
-            if (quiz.hasMoreQuestions()) {
-                QuestionNumberLabel.setText("Question " + currentQuestionIndex);
-            }
-            else{
-                QuestionNumberLabel.setText("Question " + "Last");
-            }
+            currentQuestionIndex += 1;
+            questionTextArea.setText(currentQuestion.getText());
+            questionNumberLabel.setText(
+                    "Question " + currentQuestionIndex + " / " + TOTAL_QUESTIONS);
         } else {
-            QuestionTextArea.setText("Quiz complete! Your score: " + currentScore + " / 5");
-            QuestionNumberLabel.setText("End of quiz");
+            displayFinalMessage();
         }
     }
+
+    private void displayFinalMessage() {
+        questionTextArea.setText(
+                "Quiz complete! Your score: " + currentScore + " / " + TOTAL_QUESTIONS);
+        questionNumberLabel.setText("End of quiz");
+        trueButton.setDisable(true);
+        falseButton.setDisable(true);
+    }
+
 
     @FXML
     private void handleTrue() {

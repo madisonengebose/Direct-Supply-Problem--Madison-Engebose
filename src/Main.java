@@ -3,6 +3,7 @@
  * Name: Madison Engebose
  * Created: 11/12/24
  */
+
 package src;
 
 import javafx.application.Application;
@@ -12,6 +13,9 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+/**
+ * This class launches the user interface
+ */
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
