@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.MainScreenController">
+   <padding>
+      <Insets top="20.0" />
+   </padding>
+   <VBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #F5F5F5;">
+      <HBox alignment="CENTER" prefHeight="115.0" prefWidth="200.0">
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+         <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-text-fill: #80CBC4;" text="General Trivia">
+            <font>
+               <Font name="Calibri Bold" size="60.0" />
+            </font>
+         </Label>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="75.0" prefWidth="400.0">
+         <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="400.0" style="-fx-text-fill: #80CBC4;" text="Click the start button to start a 5 question quiz!" textAlignment="CENTER" wrapText="true">
+            <font>
+               <Font name="Calibri Bold" size="24.0" />
+            </font>
+         </Label>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+         <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToQuestions" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #FF7043; -fx-border-color: #ff5c2a; -fx-border-width: 3px;" text="Start" textAlignment="CENTER">
+            <font>
+               <Font name="Calibri Bold" size="26.0" />
+            </font>
+         </Button>
+      </HBox>
+      <HBox alignment="BOTTOM_RIGHT" prefHeight="70.0" prefWidth="200.0">
+         <padding>
+            <Insets bottom="10.0" right="10.0"/>
+         </padding>
+         <Button maxHeight="30.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="75.0"
+                 style="-fx-background-color: #ffaa90; -fx-border-color: #ff835d; -fx-border-width: 3px;" text="Exit">
+            <font>
+               <Font name="System Bold" size="14.0"/>
+            </font>
+         </Button>
+      </HBox>
+   </VBox>
+</Pane>
